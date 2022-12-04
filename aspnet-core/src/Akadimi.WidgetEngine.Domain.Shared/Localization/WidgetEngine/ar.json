@@ -1,0 +1,33 @@
+{
+  "culture": "ar",
+  "texts": {
+    "Menu:Home": "الرئيسية",
+    "Welcome": "مرحبا",
+    "LongWelcomeMessage": "مرحبا بكم في التطبيق. هذا مشروع بدء تشغيل يعتمد على إطار عمل ABP. لمزيد من المعلومات ، يرجى زيارة abp.io.",
+    "Menu:WidgetEngine": "المصمم الذكي",
+    "Menu:Books": "الكتب",
+    "Actions": "إجراءات",
+    "Close": "إغلاق",
+    "Delete": "حذف",
+    "Edit": "تعديل",
+    "PublishDate": "تاريخ النشر",
+    "NewBook": "كتاب جديد",
+    "EditBook": "تعديل كتاب",
+    "SelectBookType": "اختر نوع الكتاب",
+    "Name": "الاسم",
+    "Type": "النوع",
+    "Price": "السعر",
+    "CreationTime": "تاريخ الإنساء",
+    "AreYouSure": "هل أنت متأكد؟",
+    "AreYouSureToDelete": "هل أنت متأكد من حذف هذا العنصر؟",
+    "Enum:BookType.Undefined": "غير محدد",
+    "Enum:BookType.Adventure": "مغامرة",
+    "Enum:BookType.Biography": "سيرة شخصية",
+    "Enum:BookType.Dystopia": "أدب",
+    "Enum:BookType.Fantastic": "خرافي",
+    "Enum:BookType.Horror": "رعب",
+    "Enum:BookType.Science": "علوم",
+    "Enum:BookType.ScienceFiction": "خيال علمي",
+    "Enum:BookType.Poetry": "شعر"
+  }
+}
