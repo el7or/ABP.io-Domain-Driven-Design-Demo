@@ -28,6 +28,11 @@
     "Enum:BookType.Horror": "رعب",
     "Enum:BookType.Science": "علوم",
     "Enum:BookType.ScienceFiction": "خيال علمي",
-    "Enum:BookType.Poetry": "شعر"
+    "Enum:BookType.Poetry": "شعر",
+    "Permission:WidgetEngine": "المصمم الذكي",
+    "Permission:Books": "إدارة الكتب",
+    "Permission:Books.Create": "إنشاء كتب جديدة",
+    "Permission:Books.Edit": "تعديل الكتب",
+    "Permission:Books.Delete": "حذف الكتب"
   }
 }

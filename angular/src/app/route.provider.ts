@@ -28,6 +28,7 @@ function configureRoutes(routes: RoutesService) {
         iconClass: 'fas fa-book',
         parentName: '::Menu:WidgetEngine',
         layout: eLayoutType.application,
+        requiredPolicy: 'WidgetEngine.Books',
       },
     ]);
   };

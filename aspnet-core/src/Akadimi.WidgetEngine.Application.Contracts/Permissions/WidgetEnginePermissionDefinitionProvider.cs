@@ -8,9 +8,12 @@ public class WidgetEnginePermissionDefinitionProvider : PermissionDefinitionProv
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        var myGroup = context.AddGroup(WidgetEnginePermissions.GroupName);
-        //Define your own permissions here. Example:
-        //myGroup.AddPermission(WidgetEnginePermissions.MyPermission1, L("Permission:MyPermission1"));
+        var widgetEngineGroup = context.AddGroup(WidgetEnginePermissions.GroupName);
+
+        var booksPermission = widgetEngineGroup.AddPermission(WidgetEnginePermissions.Books.Default, L("Permission:Books"));
+        booksPermission.AddChild(WidgetEnginePermissions.Books.Create, L("Permission:Books.Create"));
+        booksPermission.AddChild(WidgetEnginePermissions.Books.Edit, L("Permission:Books.Edit"));
+        booksPermission.AddChild(WidgetEnginePermissions.Books.Delete, L("Permission:Books.Delete"));
     }
 
     private static LocalizableString L(string name)

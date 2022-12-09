@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Akadimi.WidgetEngine.Permissions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,11 @@ namespace Akadimi.WidgetEngine.Books
         public BookService(IRepository<Book, Guid> repository)
             : base(repository)
         {
-
+            GetPolicyName = WidgetEnginePermissions.Books.Default;
+            GetListPolicyName = WidgetEnginePermissions.Books.Default;
+            CreatePolicyName = WidgetEnginePermissions.Books.Create;
+            UpdatePolicyName = WidgetEnginePermissions.Books.Edit;
+            DeletePolicyName = WidgetEnginePermissions.Books.Delete;
         }
     }
 }

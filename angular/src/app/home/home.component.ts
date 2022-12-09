@@ -12,7 +12,7 @@ export class HomeComponent {
     return this.oAuthService.hasValidAccessToken();
   }
 
-  constructor(private oAuthService: OAuthService, private authService: AuthService) {}
+  constructor(private oAuthService: OAuthService, private authService: AuthService) { }
 
   login() {
     this.authService.navigateToLogin();

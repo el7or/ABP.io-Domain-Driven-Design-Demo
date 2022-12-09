@@ -8,8 +8,9 @@
       </div>
       <div class="text-end col col-md-6">
         <div class="text-lg-end pt-2">
-          <button id="create" class="btn btn-primary" type="button" (click)="createBook()">
-            <i class="fa fa-plus mr-1"></i>
+          <button *abpPermission="'WidgetEngine.Books.Create'" id="create" class="btn btn-primary" type="button"
+            (click)="createBook()">
+            <i class="fa fa-plus mr-1"></i>&nbsp;
             <span>{{ "::NewBook" | abpLocalization }}</span>
           </button>
         </div>
@@ -34,7 +35,8 @@
           {{ row.price | currency }}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column [name]="'::Actions' | abpLocalization" [maxWidth]="150" [sortable]="false">
+      <ngx-datatable-column *abpPermission="'WidgetEngine.Books.Edit' || 'WidgetEngine.Books.Delete'"
+        [name]="'::Actions' | abpLocalization" [maxWidth]="150" [sortable]="false">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <div ngbDropdown container="body" class="d-inline-block">
             <button class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -42,10 +44,10 @@
               <i class="fa fa-cog mr-1"></i>{{ '::Actions' | abpLocalization }}
             </button>
             <div ngbDropdownMenu>
-              <button ngbDropdownItem (click)="editBook(row.id)">
+              <button *abpPermission="'WidgetEngine.Books.Edit'" ngbDropdownItem (click)="editBook(row.id)">
                 {{ '::Edit' | abpLocalization }}
               </button>
-              <button ngbDropdownItem (click)="delete(row.id)">
+              <button *abpPermission="'WidgetEngine.Books.Delete'" ngbDropdownItem (click)="delete(row.id)">
                 {{ '::Delete' | abpLocalization }}
               </button>
             </div>
