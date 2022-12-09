@@ -33,6 +33,7 @@
     "Permission:Books": "إدارة الكتب",
     "Permission:Books.Create": "إنشاء كتب جديدة",
     "Permission:Books.Edit": "تعديل الكتب",
-    "Permission:Books.Delete": "حذف الكتب"
+    "Permission:Books.Delete": "حذف الكتب",
+    "WidgetEngine:00001": "يوجد بالفعل وسم بنفس الاسم: {name}"
   }
 }

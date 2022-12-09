@@ -8,5 +8,5 @@ public static class WidgetEngineConsts
 
     public const string DbBooksTablesPrefix = null;
 
-    public const string DbBooksSchema = "Books";
+    public const string DbBooksSchema = "BookStore";
 }
