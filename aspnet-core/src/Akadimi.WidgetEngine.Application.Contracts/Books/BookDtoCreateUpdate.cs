@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Akadimi.WidgetEngine.Books
 {
-    public class CreateUpdateBookDto
+    public class BookDtoCreateUpdate
     {
         [Required]
         [StringLength(128)]

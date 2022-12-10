@@ -12,20 +12,18 @@ namespace Akadimi.WidgetEngine.Tags
 {
     public class TagManager : DomainService
     {
-        private readonly ITagRepository _authorRepository;
+        private readonly ITagRepository _tagRepository;
 
-        public TagManager(ITagRepository authorRepository)
+        public TagManager(ITagRepository tagRepository)
         {
-            _authorRepository = authorRepository;
+            _tagRepository = tagRepository;
         }
 
-        public async Task<Tag> CreateAsync(
-            [NotNull] string name,
-            [CanBeNull] string desc = null)
+        public async Task<Tag> CreateAsync([NotNull] string name, [CanBeNull] string desc = null)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
-            var existingTag = await _authorRepository.FindByNameAsync(name);
+            var existingTag = await _tagRepository.FindByNameAsync(name);
             if (existingTag != null)
             {
                 throw new TagAlreadyExistsException(name);
@@ -38,20 +36,18 @@ namespace Akadimi.WidgetEngine.Tags
             );
         }
 
-        public async Task ChangeNameAsync(
-            [NotNull] Tag author,
-            [NotNull] string newName)
+        public async Task ChangeNameAsync([NotNull] Tag tag, [NotNull] string newName)
         {
-            Check.NotNull(author, nameof(author));
+            Check.NotNull(tag, nameof(tag));
             Check.NotNullOrWhiteSpace(newName, nameof(newName));
 
-            var existingTag = await _authorRepository.FindByNameAsync(newName);
-            if (existingTag != null && existingTag.Id != author.Id)
+            var existingTag = await _tagRepository.FindByNameAsync(newName);
+            if (existingTag != null && existingTag.Id != tag.Id)
             {
                 throw new TagAlreadyExistsException(newName);
             }
 
-            author.ChangeName(newName);
+            tag.ChangeName(newName);
         }
     }
 }

@@ -31,9 +31,13 @@
     "Enum:BookType.Poetry": "شعر",
     "Permission:WidgetEngine": "المصمم الذكي",
     "Permission:Books": "إدارة الكتب",
-    "Permission:Books.Create": "إنشاء كتب جديدة",
+    "Permission:Books.Create": "إضافة كتب جديدة",
     "Permission:Books.Edit": "تعديل الكتب",
     "Permission:Books.Delete": "حذف الكتب",
+    "Permission:Tags": "إدارة الأوسمة",
+    "Permission:Tags.Create": "إضافة وسم جديد",
+    "Permission:Tags.Edit": "تعديل وسم",
+    "Permission:Tags.Delete": "حذف وسم",
     "WidgetEngine:00001": "يوجد بالفعل وسم بنفس الاسم: {name}"
   }
 }

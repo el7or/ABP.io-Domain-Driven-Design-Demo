@@ -35,7 +35,7 @@ namespace Akadimi.WidgetEngine.Books
         {
             //Act
             var result = await _bookService.CreateAsync(
-                new CreateUpdateBookDto
+                new BookDtoCreateUpdate
                 {
                     Name = "New test book 42",
                     Price = 10,
@@ -55,7 +55,7 @@ namespace Akadimi.WidgetEngine.Books
             var exception = await Assert.ThrowsAsync<AbpValidationException>(async () =>
             {
                 await _bookService.CreateAsync(
-                    new CreateUpdateBookDto
+                    new BookDtoCreateUpdate
                     {
                         Name = "",
                         Price = 10,
