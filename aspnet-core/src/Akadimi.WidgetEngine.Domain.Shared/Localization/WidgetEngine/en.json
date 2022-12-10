@@ -35,9 +35,14 @@
     "Permission:Books.Edit": "Editing the books",
     "Permission:Books.Delete": "Deleting the books",
     "Permission:Tags": "Tag Management",
-    "Permission:Tags.Create": "Creating new authors",
-    "Permission:Tags.Edit": "Editing the authors",
-    "Permission:Tags.Delete": "Deleting the authors",
-    "WidgetEngine:00001": "There is already an tag with the same name: {name}"
+    "Permission:Tags.Create": "Creating new tags",
+    "Permission:Tags.Edit": "Editing the tags",
+    "Permission:Tags.Delete": "Deleting the tags",
+    "WidgetEngine:00001": "There is already an tag with the same name: {name}",
+    "Menu:Tags": "Tags",
+    "Tags": "Tags",
+    "TagDeletionConfirmationMessage": "Are you sure to delete the tag '{0}'?",
+    "Desc": "Description",
+    "NewTag": "New tag"
   }
 }

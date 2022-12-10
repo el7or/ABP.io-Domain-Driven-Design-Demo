@@ -38,6 +38,11 @@
     "Permission:Tags.Create": "إضافة وسم جديد",
     "Permission:Tags.Edit": "تعديل وسم",
     "Permission:Tags.Delete": "حذف وسم",
-    "WidgetEngine:00001": "يوجد بالفعل وسم بنفس الاسم: {name}"
+    "WidgetEngine:00001": "يوجد بالفعل وسم بنفس الاسم: {name}",
+    "Menu:Tags": "الأوسمة",
+    "Tags": "الأوسمة",
+    "TagDeletionConfirmationMessage": "هل أنت متأكد من إزالة هذا الوسم '{0}'?",
+    "Desc": "الوصف",
+    "NewTag": "وسم جديد"
   }
 }

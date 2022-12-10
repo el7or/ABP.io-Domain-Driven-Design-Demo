@@ -1,4 +1,4 @@
-import type { BookDto, CreateUpdateBookDto } from './models';
+import type { BookDto, BookDtoCreateUpdate } from './models';
 import { RestService } from '@abp/ng.core';
 import type { PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
@@ -10,7 +10,7 @@ export class BookService {
   apiName = 'Default';
   
 
-  create = (input: CreateUpdateBookDto) =>
+  create = (input: BookDtoCreateUpdate) =>
     this.restService.request<any, BookDto>({
       method: 'POST',
       url: '/api/app/book',
@@ -44,7 +44,7 @@ export class BookService {
     { apiName: this.apiName });
   
 
-  update = (id: string, input: CreateUpdateBookDto) =>
+  update = (id: string, input: BookDtoCreateUpdate) =>
     this.restService.request<any, BookDto>({
       method: 'PUT',
       url: `/api/app/book/${id}`,

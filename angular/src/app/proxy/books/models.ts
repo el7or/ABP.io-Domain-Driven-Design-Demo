@@ -3,12 +3,12 @@ import type { BookType } from './book-type.enum';
 
 export interface BookDto extends AuditedEntityDto<string> {
   name?: string;
-  type: BookType |string;
+  type: BookType;
   publishDate?: string;
   price: number;
 }
 
-export interface CreateUpdateBookDto {
+export interface BookDtoCreateUpdate {
   name: string;
   type: BookType;
   publishDate: string;

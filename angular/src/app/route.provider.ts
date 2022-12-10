@@ -30,6 +30,14 @@ function configureRoutes(routes: RoutesService) {
         layout: eLayoutType.application,
         requiredPolicy: 'WidgetEngine.Books',
       },
+      {
+        path: '/tags',
+        name: '::Menu:Tags',
+        iconClass: 'fas fa-tag',
+        parentName: '::Menu:WidgetEngine',
+        layout: eLayoutType.application,
+        requiredPolicy: 'WidgetEngine.Tags',
+      },
     ]);
   };
 }

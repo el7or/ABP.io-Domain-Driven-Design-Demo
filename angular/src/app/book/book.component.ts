@@ -33,7 +33,7 @@ export class BookComponent implements OnInit {
     this.list.hookToQuery(bookStreamCreator).subscribe((response) => {
       this.book = response;
       this.book.items.forEach(book => {
-        book.type = BookType[book.type]
+        book.type = BookType[book.type.toString()]
       })
     });
   }
