@@ -31,6 +31,14 @@ function configureRoutes(routes: RoutesService) {
         requiredPolicy: 'WidgetEngine.Books',
       },
       {
+        path: '/authors',
+        name: '::Menu:Authors',
+        iconClass: 'fas fa-user',
+        parentName: '::Menu:WidgetEngine',
+        layout: eLayoutType.application,
+        requiredPolicy: 'WidgetEngine.Authors',
+      },
+      {
         path: '/tags',
         name: '::Menu:Tags',
         iconClass: 'fas fa-tag',

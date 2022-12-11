@@ -15,6 +15,12 @@ public class WidgetEnginePermissionDefinitionProvider : PermissionDefinitionProv
         booksPermission.AddChild(WidgetEnginePermissions.Books.Edit, L("Permission:Books.Edit"));
         booksPermission.AddChild(WidgetEnginePermissions.Books.Delete, L("Permission:Books.Delete"));
 
+        var authorsPermission = widgetEngineGroup.AddPermission(WidgetEnginePermissions.Authors.Default, L("Permission:Authors"));
+        authorsPermission.AddChild(WidgetEnginePermissions.Authors.Create, L("Permission:Authors.Create"));
+        authorsPermission.AddChild(WidgetEnginePermissions.Authors.Edit, L("Permission:Authors.Edit"));
+        authorsPermission.AddChild(WidgetEnginePermissions.Authors.Delete, L("Permission:Authors.Delete"));
+
+
         var tagsPermission = widgetEngineGroup.AddPermission(WidgetEnginePermissions.Tags.Default, L("Permission:Tags"));
         tagsPermission.AddChild(WidgetEnginePermissions.Tags.Create, L("Permission:Tags.Create"));
         tagsPermission.AddChild(WidgetEnginePermissions.Tags.Edit, L("Permission:Tags.Edit"));

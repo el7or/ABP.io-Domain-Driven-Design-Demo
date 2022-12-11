@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Akadimi.WidgetEngine.Authors;
 using Akadimi.WidgetEngine.Books;
 using Akadimi.WidgetEngine.Tags;
 using Volo.Abp.Data;
@@ -11,14 +12,20 @@ namespace Akadimi.WidgetEngine
     public class WidgetEngineDataSeederContributor : IDataSeedContributor, ITransientDependency
     {
         private readonly IRepository<Book, Guid> _bookRepository;
+        private readonly IAuthorRepository _authorRepository;
+        private readonly AuthorManager _authorManager;
         private readonly ITagRepository _tagRepository;
         private readonly TagManager _tagManager;
 
         public WidgetEngineDataSeederContributor(IRepository<Book, Guid> bookRepository,
+            IAuthorRepository authorRepository,
+            AuthorManager authorManager,
             ITagRepository tagRepository,
             TagManager tagManager)
         {
             _bookRepository = bookRepository;
+            _authorRepository = authorRepository;
+            _authorManager = authorManager;
             _tagRepository = tagRepository;
             _tagManager = tagManager;
         }
@@ -47,6 +54,26 @@ namespace Akadimi.WidgetEngine
                         Price = 42.0f
                     },
                     autoSave: true
+                );
+            }
+
+            //Author Seeds
+            if (await _authorRepository.GetCountAsync() <= 0)
+            {
+                await _authorRepository.InsertAsync(
+                    await _authorManager.CreateAsync(
+                        "George Orwell",
+                        new DateTime(1903, 06, 25),
+                        "Orwell produced literary criticism and poetry, fiction and polemical journalism; and is best known for the allegorical novella Animal Farm (1945) and the dystopian novel Nineteen Eighty-Four (1949)."
+                )
+                );
+
+                await _authorRepository.InsertAsync(
+                    await _authorManager.CreateAsync(
+                        "Douglas Adams",
+                        new DateTime(1952, 03, 11),
+                        "Douglas Adams was an English author, screenwriter, essayist, humorist, satirist and dramatist. Adams was an advocate for environmentalism and conservation, a lover of fast cars, technological innovation and the Apple Macintosh, and a self-proclaimed 'radical atheist'."
+                    )
                 );
             }
 

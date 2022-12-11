@@ -1,4 +1,5 @@
-﻿using Akadimi.WidgetEngine.Books;
+﻿using Akadimi.WidgetEngine.Authors;
+using Akadimi.WidgetEngine.Books;
 using Akadimi.WidgetEngine.Tags;
 using AutoMapper;
 
@@ -15,6 +16,8 @@ public class WidgetEngineApplicationAutoMapperProfile : Profile
         CreateMap<Book, BookDto>()
             .ForMember(res => res.Type, opt => opt.MapFrom(c => c.Type.ToString()));
         CreateMap<BookDtoCreateUpdate, Book>();
+
+        CreateMap<Author, AuthorDto>();
 
         CreateMap<Tag, TagDto>();
 

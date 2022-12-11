@@ -1,4 +1,5 @@
-﻿using Akadimi.WidgetEngine.Books;
+﻿using Akadimi.WidgetEngine.Authors;
+using Akadimi.WidgetEngine.Books;
 using Akadimi.WidgetEngine.Tags;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -28,6 +29,8 @@ public class WidgetEngineDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
     public DbSet<Book> Books { get; set; }
+    public DbSet<Author> Authors { get; set; }
+
     public DbSet<Tag> Tags { get; set; }
 
     #region Entities from the modules
@@ -87,6 +90,18 @@ public class WidgetEngineDbContext :
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name).IsRequired().HasMaxLength(128);
         });
+
+        builder.Entity<Author>(b =>
+        {
+            b.ToTable(WidgetEngineConsts.DbBooksTablesPrefix + "Authors",
+                WidgetEngineConsts.DbBooksSchema);
+            b.ConfigureByConvention();
+            b.Property(x => x.Name)
+                .IsRequired()
+                .HasMaxLength(AuthorConsts.MaxNameLength);
+            b.HasIndex(x => x.Name);
+        });
+
 
         builder.Entity<Tag>(b =>
         {
