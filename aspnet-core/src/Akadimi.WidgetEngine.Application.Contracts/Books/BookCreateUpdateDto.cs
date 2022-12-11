@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Akadimi.WidgetEngine.Books
 {
-    public class BookDtoCreateUpdate
+    public class BookCreateUpdateDto
     {
         [Required]
         [StringLength(128)]
@@ -18,5 +18,9 @@ namespace Akadimi.WidgetEngine.Books
 
         [Required]
         public float Price { get; set; }
+
+        [Required]
+        public Guid AuthorId { get; set; }
+
     }
 }

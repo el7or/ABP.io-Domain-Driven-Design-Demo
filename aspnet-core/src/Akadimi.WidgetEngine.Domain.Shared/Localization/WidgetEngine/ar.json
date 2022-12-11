@@ -46,6 +46,7 @@
     "WidgetEngine:00002": "يوجد بالفعل وسم بنفس الاسم: {name}",
     "Menu:Authors": "المؤلفون",
     "Authors": "المؤلفون",
+    "Author": "المؤلف",
     "AuthorDeletionConfirmationMessage": "هل أنت متأكد من إزالة هذا المؤلف '{0}'?",
     "BirthDate": "تاريخ الميلاد",
     "NewAuthor": "مؤلف جديد",

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Akadimi.WidgetEngine.Authors;
 using Shouldly;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Validation;
@@ -11,10 +12,12 @@ namespace Akadimi.WidgetEngine.Books
     public class BookService_Tests : WidgetEngineApplicationTestBase
     {
         private readonly IBookService _bookService;
+        private readonly IAuthorService _authorService;
 
         public BookService_Tests()
         {
             _bookService = GetRequiredService<IBookService>();
+            _authorService = GetRequiredService<IAuthorService>();
         }
 
         [Fact]
@@ -27,16 +30,21 @@ namespace Akadimi.WidgetEngine.Books
 
             //Assert
             result.TotalCount.ShouldBeGreaterThan(0);
-            result.Items.ShouldContain(b => b.Name == "1984");
+            result.Items.ShouldContain(b => b.Name == "1984" &&
+                                       b.AuthorName == "George Orwell");
         }
 
         [Fact]
         public async Task Should_Create_A_Valid_Book()
         {
+            var authors = await _authorService.GetListAsync(new AuthorGetListDto());
+            var firstAuthor = authors.Items.First();
+
             //Act
             var result = await _bookService.CreateAsync(
-                new BookDtoCreateUpdate
+                new BookCreateUpdateDto
                 {
+                    AuthorId = firstAuthor.Id,
                     Name = "New test book 42",
                     Price = 10,
                     PublishDate = DateTime.Now,
@@ -55,7 +63,7 @@ namespace Akadimi.WidgetEngine.Books
             var exception = await Assert.ThrowsAsync<AbpValidationException>(async () =>
             {
                 await _bookService.CreateAsync(
-                    new BookDtoCreateUpdate
+                    new BookCreateUpdateDto
                     {
                         Name = "",
                         Price = 10,
@@ -66,8 +74,7 @@ namespace Akadimi.WidgetEngine.Books
             });
 
             exception.ValidationErrors
-                .ShouldContain(err => err.MemberNames.Any(mem => mem == "Name"));
+                .ShouldContain(err => err.MemberNames.Any(m => m == "Name"));
         }
-
     }
 }

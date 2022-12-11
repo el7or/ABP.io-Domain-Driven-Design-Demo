@@ -4,6 +4,7 @@ using Akadimi.WidgetEngine.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Akadimi.WidgetEngine.Migrations
 {
     [DbContext(typeof(WidgetEngineDbContext))]
-    partial class WidgetEngineDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221211081630_Add_AuthorId_To_Book")]
+    partial class Add_AuthorId_To_Book
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

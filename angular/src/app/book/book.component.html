@@ -20,6 +20,8 @@
   <div class="card-body">
     <ngx-datatable [rows]="book.items" [count]="book.totalCount" [list]="list" default>
       <ngx-datatable-column [name]="'::Name' | abpLocalization" prop="name"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Author' | abpLocalization" prop="authorName"
+        [sortable]="false"></ngx-datatable-column>
       <ngx-datatable-column [name]="'::Type' | abpLocalization" prop="type">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ '::Enum:BookType.' + row.type | abpLocalization }}
@@ -68,6 +70,16 @@
       <div class="form-group">
         <label for="book-name">{{'::Name' | abpLocalization}}</label><span> * </span>
         <input type="text" id="book-name" class="form-control" formControlName="name" autofocus />
+      </div>
+
+      <div class="form-group">
+        <label for="author-id">Author</label><span> * </span>
+        <select class="form-control" id="author-id" formControlName="authorId">
+          <option [ngValue]="null" disabled>Select author</option>
+          <option [ngValue]="author.id" *ngFor="let author of authors$ | async">
+            {{ author.name }}
+          </option>
+        </select>
       </div>
 
       <div class="form-group">

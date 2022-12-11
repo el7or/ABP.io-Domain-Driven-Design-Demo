@@ -85,16 +85,16 @@ public class WidgetEngineDbContext :
 
         builder.Entity<Book>(b =>
         {
-            b.ToTable( WidgetEngineConsts.DbBooksTablesPrefix + "Books",
-                WidgetEngineConsts.DbBooksSchema);
+            b.ToTable(WidgetEngineConsts.DbBooksTablesPrefix + "Books", WidgetEngineConsts.DbBooksSchema);
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+
+            b.HasOne<Author>().WithMany().HasForeignKey(x => x.AuthorId).IsRequired();
         });
 
         builder.Entity<Author>(b =>
         {
-            b.ToTable(WidgetEngineConsts.DbBooksTablesPrefix + "Authors",
-                WidgetEngineConsts.DbBooksSchema);
+            b.ToTable(WidgetEngineConsts.DbBooksTablesPrefix + "Authors", WidgetEngineConsts.DbBooksSchema);
             b.ConfigureByConvention();
             b.Property(x => x.Name)
                 .IsRequired()
@@ -105,8 +105,7 @@ public class WidgetEngineDbContext :
 
         builder.Entity<Tag>(b =>
         {
-            b.ToTable(WidgetEngineConsts.DbBooksTablesPrefix + "Tags",
-                WidgetEngineConsts.DbBooksSchema);
+            b.ToTable(WidgetEngineConsts.DbBooksTablesPrefix + "Tags", WidgetEngineConsts.DbBooksSchema);
             b.ConfigureByConvention();
             b.Property(x => x.Name)
                 .IsRequired()

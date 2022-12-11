@@ -15,9 +15,10 @@ public class WidgetEngineApplicationAutoMapperProfile : Profile
 
         CreateMap<Book, BookDto>()
             .ForMember(res => res.Type, opt => opt.MapFrom(c => c.Type.ToString()));
-        CreateMap<BookDtoCreateUpdate, Book>();
+        CreateMap<BookCreateUpdateDto, Book>();
 
         CreateMap<Author, AuthorDto>();
+        CreateMap<Author, AuthorLookupDto>();
 
         CreateMap<Tag, TagDto>();
 

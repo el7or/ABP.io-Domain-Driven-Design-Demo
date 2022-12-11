@@ -42,6 +42,7 @@
     "WidgetEngine:00002": "There is already an tag with the same name: {name}",
     "Menu:Authors": "Authors",
     "Authors": "Authors",
+    "Author": "Author",
     "AuthorDeletionConfirmationMessage": "Are you sure to delete the author '{0}'?",
     "BirthDate": "Birth date",
     "NewAuthor": "New author",
